@@ -15,7 +15,7 @@ var methodOverride = require("method-override");
 var flash = require("connect-flash");
 
 //seedDB();
-mongoose.connect("mongodb://localhost:27017/YelpCamp", { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
+mongoose.connect("mongodb+srv://dbUser:dbUser@cluster0-miz2s.mongodb.net/test?retryWrites=true&w=majority", { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static("views/images"));
