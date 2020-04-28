@@ -16,7 +16,7 @@ var flash = require("connect-flash");
 var port = process.env.PORT || 3000;
 
 //seedDB();
-mongoose.connect("mongodb+srv://dbUser:dbUser@cluster0-miz2s.mongodb.net/test?retryWrites=true&w=majority", { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
+mongoose.connect(process.env.DATABASEURL, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static("views/images"));
