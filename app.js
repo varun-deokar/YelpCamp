@@ -13,6 +13,7 @@ var commentRoute = require("./routes/comments");
 var authroute = require("./routes/auth");
 var methodOverride = require("method-override");
 var flash = require("connect-flash");
+var port = process.env.PORT || 3000;
 
 //seedDB();
 mongoose.connect("mongodb+srv://dbUser:dbUser@cluster0-miz2s.mongodb.net/test?retryWrites=true&w=majority", { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
@@ -50,7 +51,7 @@ app.get("/", function(req, res){
 });
 
 
-app.listen(3000, function(){
+app.listen(port, function(){
     console.log("Server is running");
 });
 
