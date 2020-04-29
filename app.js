@@ -14,8 +14,9 @@ var authroute = require("./routes/auth");
 var methodOverride = require("method-override");
 var flash = require("connect-flash");
 var port = process.env.PORT || 3000;
-
+// console.log(process.env.DATABASEURL);
 //seedDB();
+// mongoose.connect("mongodb://localhost:27017/YelpCamp", { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
 mongoose.connect(process.env.DATABASEURL, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");

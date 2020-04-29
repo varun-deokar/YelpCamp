@@ -23,11 +23,12 @@ router.post("/campsites", middleware.isLoggedIn, function(req, res){
     var name = req.body.name;
     var image = req.body.img;
     var description = req.body.description;
+    var price = req.body.price;
     var author = {
         id: req.user._id,
         username: req.user.username
     }
-    var newCampsite = {name: name, image: image, description: description, author: author};
+    var newCampsite = {name: name, image: image, description: description, price: price, author: author};
     Campsites.create(newCampsite, function(err, campsite){
         if(err)
             console.log(err);
@@ -61,7 +62,7 @@ router.get("/campsites/:id/edit", middleware.postOwner, function(req, res){
 });
 
 router.put("/campsites/:id", middleware.postOwner, function(req, res){
-    var updatedCampsite = {name: req.body.name, image: req.body.img, description: req.body.description};
+    var updatedCampsite = {name: req.body.name, image: req.body.img, description: req.body.description, price: req.body.price};
     Campsites.findByIdAndUpdate(req.params.id, updatedCampsite, function(err, updatedCamp){
         if(err)
             console.log(err);
